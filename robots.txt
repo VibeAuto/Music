@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+
+# sitemap
+Sitemap: https://vibeauto.github.io/Music/sitemap.xml
