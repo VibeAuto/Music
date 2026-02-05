@@ -100,6 +100,64 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Layout Kontainer Utama */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Area Konten Utama (Kiri) */
+.content-area {
+    flex: 3; /* Mengambil 75% ruang */
+    min-width: 300px;
+}
+
+/* Sidebar (Kanan) */
+.sidebar {
+    flex: 1; /* Mengambil 25% ruang */
+    min-width: 250px;
+}
+
+/* Gaya Widget di Sidebar */
+.sidebar-widget {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.sidebar-widget h3 {
+    margin-top: 0;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.btn-sidebar {
+    display: block;
+    text-align: center;
+    background: #2563eb;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Otomatis Stack (Tumpuk) saat di HP */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+}
+
+        
 </style>
 </head>
 <body>
@@ -186,6 +244,27 @@ footer {
     
 </section>
 
+<main class="main-container">
+    <div class="content-area">
+        </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-widget">
+            <h3>⚠️ Safety First</h3>
+            <p>Don't get scammed by shared accounts. Read our official security guide.</p>
+            <a href="fraud-alert.html" class="btn-sidebar">Read Fraud Alert</a>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>🔥 Special Offer</h3>
+            <img src="path-ke-gambar-samiun.jpg" alt="Suno AI Promo" style="width:100%; border-radius:10px; margin-bottom:10px;">
+            <p>Get 80 Free Credits for Suno, VEO, and SORA today!</p>
+            <a href="suno-api.html" class="btn-sidebar">Claim Bonus</a>
+        </div>
+    </aside>
+</main>
+    
+    
     <section class="video-ai-promo" style="margin: 40px 0; padding: 30px; background: #ffffff; border: 2px solid #e2e8f0; border-radius: 16px; font-family: 'Segoe UI', Roboto, sans-serif;">
     
     <h2 style="color: #0f172a; margin-top: 0; font-size: 1.8rem; text-align: center;">Unlock the Power of VEO, SORA, and GROK</h2>
