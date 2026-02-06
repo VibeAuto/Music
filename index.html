@@ -7,151 +7,239 @@
     <title>VibeAuto Music | The Ultimate AI Creator Toolbox</title>
     <meta name="description" content="Master AI Music, Video Avatars, and Automation. Honest reviews of Suno AI, Sora, Veo, Grok, and more.">
     <style>
-    :root {
-        --primary: #2563eb;
-        --dark: #0f172a;
-        --light: #f8fafc;
-    }
-    body { 
-        font-family: sans-serif; 
-        margin: 0; 
-        background-color: var(--light); 
-        color: var(--dark); 
-        padding: 0;
-    }
-    nav { 
-        background: white; 
-        padding: 20px; 
-        border-bottom: 1px solid #eee;
-    }
-    nav ul { list-style: none; padding: 0; display: flex; gap: 15px; }
-    nav a { text-decoration: none; color: var(--primary); font-weight: bold; }
-    .hero { 
-        padding: 60px 20px; 
-        text-align: center; 
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        color: white;
-    }
-    .btn { 
-        display: inline-block;
-        background: var(--primary); 
-        color: white; 
-        padding: 12px 25px; 
-        text-decoration: none; 
-        border-radius: 8px; 
-        margin-top: 20px;
-    }
-nav { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 15px 5%; /* Menambah ruang di kiri dan kanan */
-    background: white; 
-}
-nav ul { 
-    list-style: none; 
-    display: flex; 
-    gap: 20px; 
-    margin: 0; 
-    padding: 0;
-}
-footer {
-    padding: 40px 20px;
-    text-align: center;
-    background: #f8fafc;
-    border-top: 1px solid #eee;
-    margin-top: 20px;
-}
-.btn:hover {
-    background-color: #1d4ed8; /* Biru yang lebih gelap sedikit */
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-}
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 50px 5%;
-    background: #fff;
-}
-.tool-card {
-    border: 1px solid #e2e8f0;
-    padding: 25px;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-.tool-card h3 {
-    margin-top: 0;
-    color: #0f172a;
-}
-.tool-card p {
-    color: #64748b;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-.tool-link {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --danger: #e11d48;
+        }
+        body { 
+            font-family: sans-serif; 
+            margin: 0; 
+            background-color: var(--light); 
+            color: var(--dark); 
+            padding: 0;
+        }
+        
+        /* Navigation */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 5%; 
+            background: white; 
+            border-bottom: 1px solid #eee;
+        }
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 20px; 
+            margin: 0; 
+            padding: 0;
+        }
+        nav a { text-decoration: none; color: var(--primary); font-weight: bold; }
 
-/* Layout Kontainer Utama */
-.main-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        /* Hero Section */
+        .hero { 
+            padding: 60px 20px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+        .btn { 
+            display: inline-block;
+            background: var(--primary); 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
-/* Area Konten Utama (Kiri) */
-.content-area {
-    flex: 3; /* Mengambil 75% ruang */
-    min-width: 300px;
-}
+        /* --- LAYOUT UTAMA (Flexbox) --- */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-/* Sidebar (Kanan) */
-.sidebar {
-    flex: 1; /* Mengambil 25% ruang */
-    min-width: 250px;
-}
+        /* Area Konten Kiri (75%) */
+        .content-area {
+            flex: 3;
+            min-width: 320px;
+        }
 
-/* Gaya Widget di Sidebar */
-.sidebar-widget {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
+        /* Sidebar Kanan (25%) */
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+        }
 
-.sidebar-widget h3 {
-    margin-top: 0;
-    color: #1e293b;
-    font-size: 1.1rem;
-}
+        /* Grid untuk Tools Card */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
 
-.btn-sidebar {
-    display: block;
-    text-align: center;
-    background: #2563eb;
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 10px;
-}
+        .tool-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .tool-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .tool-card h2 { margin-top: 0; color: var(--dark); font-size: 1.4rem; }
+        .tool-card p { color: #64748b; font-size: 0.95rem; line-height: 1.5; }
+        .tool-link { color: var(--primary); text-decoration: none; font-weight: bold; }
 
-/* Otomatis Stack (Tumpuk) saat di HP */
-@media (max-width: 768px) {
+        /* Sidebar Widgets */
+        .sidebar-widget {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .sidebar-widget h3 { margin-top: 0; font-size: 1.1rem; color: var(--dark); }
+        .sidebar-widget p { font-size: 0.9rem; color: #475569; }
+        .btn-sidebar {
+            display: block;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .sidebar-widget img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Promo Section */
+        .video-ai-promo {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 35px;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        /* Mobile View */
+        @media (max-width: 992px) {
+            .main-container { flex-direction: column; }
+            .content-area, .sidebar { flex: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"><b>VibeAuto Music</b></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="suno-api.html">AI Music</a></li>
+                <li><a href="about-us.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Automate Your Creativity.</h1>
+        <p>Your global guide to the best AI Music and Video tools for modern creators.</p>
+        <a href="https://vibeauto.github.io/tools/Market.html" class="btn">Start Creating Now</a>
+    </section>
+
+    <main class="main-container">
+        
+        <div class="content-area">
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h2>SUNO API AI</h2>
+                    <p>The world's most powerful AI music generator. Create full songs with vocals in seconds.</p>
+                    <a href="suno-api.html" class="tool-link">Read Review →</a>
+                </div>
+                
+                <div class="tool-card">
+                    <h2>SORA - VEO - GROK</h2>
+                    <p>Create professional AI avatars and spokesperson videos without a camera.</p>
+                    <a href="https://vibeauto.github.io/tools/Market.html" class="tool-link">Learn More →</a>
+                </div>
+
+                <div class="tool-card">
+                    <h2>Step-by-Step API Guide</h2>
+                    <p>Learn exactly how to access professional API tools for your creative projects.</p>
+                    <a href="api-guide.html" class="tool-link">Steps More →</a>
+                </div>
+
+                <div class="tool-card">
+                    <h2>STOP USING SHARE ACCOUNT</h2>
+                    <p>Stop risking your money on shared accounts. Discover the secure bridge for AI generation.</p>
+                    <a href="fraud-alert.html" class="tool-link">Read More →</a>
+                </div>
+            </div>
+
+            <center style="margin: 20px 0;">
+                <script>
+                    atOptions = { 'key' : '915ccc7f5b83040e3ee4ab05eef31e11', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/915ccc7f5b83040e3ee4ab05eef31e11/invoke.js"></script>
+            </center>
+
+            <section class="video-ai-promo">
+                <h2 style="text-align: center;">Unlock the Power of VEO, SORA, and GROK</h2>
+                <p>Tired of expensive subscriptions? Get <strong>1,000 credits for just $5</strong>. Professional AI is now within your reach.</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="https://vibeauto.github.io/tools/Market.html" class="btn" style="background: var(--danger);">Claim Your 80 Free AI Credits →</a>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>⚠️ Safety First</h3>
+                <p>Don't get scammed! Many shared accounts on social media are traps. Read our security guide.</p>
+                <a href="fraud-alert.html" class="btn-sidebar" style="background: #dc2626;">Fraud Alert Guide</a>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>🔥 Special Offer</h3>
+                <img src="Vibeauto music ai labs suno.jpg" alt="Suno AI Promo">
+                <p>Get exclusive access to Suno V5 prompts and 80 free welcome credits.</p>
+                <a href="suno-api.html" class="btn-sidebar">Get Credits Now</a>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 VibeAuto Music and Video tools AI. <a href="disclosure.html">Affiliate Disclosure</a></p>
+    </footer>
+
+</body>
+    </html>@media (max-width: 768px) {
     .main-container {
         flex-direction: column;
     }
@@ -182,7 +270,7 @@ footer {
   "description": "The ultimate global destination for mastering AI creativity, featuring expert reviews on Suno AI, HeyGen, and Pictory.",
   "founder": {
     "@type": "Person",
-    "name": "Samiun"
+    "name": "Antonie Joe Sam"
   },
   "sameAs": [
     "https://facebook.com/vibeauto",
